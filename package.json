@@ -1,0 +1,22 @@
+{
+  "name": "react-toaster-minimal",
+  "version": "1.0.8",
+  "description": "This Package is used for showing the toast messages in react web app.",
+  "main": "lib/index.js",
+  "author": "AkashBasavaraju",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-transition-group": "^4.4.0",
+    "react": "^16.13.1",
+    "react-transition-group": "^4.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  },
+  "scripts": {
+    "prebuild": "rm -r lib/*",
+    "build": "tsc",
+    "postbuild": "cp src/*.css lib/"
+  }
+}
