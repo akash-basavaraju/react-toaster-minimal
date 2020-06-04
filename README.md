@@ -4,33 +4,48 @@ This is a package for showing the Toast Message in a React Project. It is Compat
 
 ## How to Use
 
-First install the package
+First install the package with npm
 
-`npm i react-toaster-minimal --save`
+`$ npm i react-toaster-minimal --save`
 
 Import the ToastProvider and wrap it with your main App Component.
 
-`import ToastProvider from 'react-toaster-minimal';`
+```js
+import ToastProvider from "react-toaster-minimal";
+import App from "./App.js";
 
-`import App from './App.js'`
-
-`function main(){`
-
-`return <><ToastProvider><App/></ToastProvider></>;`
-
-`}`
+function main() {
+  return (
+    <>
+      <ToastProvider>
+        <App />
+      </ToastProvider>
+    </>
+  );
+}
+```
 
 Then inside the App Component, you can use the Toaster.
 
 import useToast Hook and then call it to get the showToast method. Call the showToast method to trigger the toast.
 
-`import {useToast} from 'react-toaster-minimal';`
+```js
+import { useToast } from "react-toaster-minimal";
 
-`function ChildComponent(){`
+function ChildComponent() {
+  const showToast = useToast();
 
-`const showToast = useToast();`
-
-`return <button onClick={()=>{showToast({title: 'ButtonClicked'});}}>Show Toast</button>;`
+  return (
+    <button
+      onClick={() => {
+        showToast({ title: "ButtonClicked" });
+      }}
+    >
+      Show Toast
+    </button>
+  );
+}
+```
 
 ## API
 
@@ -50,4 +65,8 @@ import useToast Hook and then call it to get the showToast method. Call the show
 
 #### Raising Issues and PRs are heartly welcomed.
 
-##### with :heart: by Akash Basavaraju
+##### with :heart: by [Akash Basavaraju](https://github.com/akash-basavaraju)
+
+```
+
+```
