@@ -18,8 +18,7 @@
   "scripts": {
     "prebuild": "rm -r lib/*",
     "build": "tsc",
-    "postbuild": "cp src/*.css lib/",
-    "dopublish": "npm run build && npm publish"
+    "postbuild": "cp src/*.css lib/"
   },
   "repository": {
     "type": "git",
