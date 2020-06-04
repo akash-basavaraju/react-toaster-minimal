@@ -49,7 +49,9 @@ export default function ToastMessageComponent({
                 onKeyPress={handleClickMsgClear}
               >
                 <div>{message.title}</div>
-                <div style={{ fontSize: "0.75rem" }}>{message.subTitle}</div>
+                {message.subTitle && (
+                  <div style={{ fontSize: "0.75rem" }}>{message.subTitle}</div>
+                )}
               </div>
             </CSSTransition>
           );

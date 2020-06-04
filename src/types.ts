@@ -1,6 +1,6 @@
 export interface IToastMessage {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   textColor?: string;
   bgColor?: string;
   compStyle?: { [key: string]: string };
