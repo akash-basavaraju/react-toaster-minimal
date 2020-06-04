@@ -1,6 +1,6 @@
 {
   "name": "react-toaster-minimal",
-  "version": "1.1.5",
+  "version": "1.2.0-0",
   "description": "This Package is used for showing the toast messages in react web app.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
