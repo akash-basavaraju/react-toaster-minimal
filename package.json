@@ -6,14 +6,14 @@
   "types": "lib/index.d.ts",
   "author": "Akash Basavaraju <bmnakash@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "@types/react": "^16.9.35",
-    "@types/react-transition-group": "^4.4.0",
+  "peerDependencies": {
     "react": "^16.13.1",
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "@types/react": "^16.9.35",
+    "@types/react-transition-group": "^4.4.0"
   },
   "scripts": {
     "prebuild": "rm -r lib/*",
