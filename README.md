@@ -2,6 +2,10 @@
 
 This is a package for showing the Toast Message in a React Project. It is Compatible with `Typescript`.
 
+## Demo
+
+![](toast-giphy.gif)
+
 ## How to Use
 
 First install the package with npm
