@@ -4,7 +4,7 @@ This is a package for showing the Toast Message in a React Project. It is Compat
 
 ## Demo
 
-![](toast-giphy.gif)
+[Demo](https://gph.is/g/E3nNjVO)
 
 ## How to Use
 
