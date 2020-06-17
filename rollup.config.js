@@ -2,6 +2,7 @@ import typescript from "rollup-plugin-typescript2";
 import styles from "rollup-plugin-styles";
 import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
+import del from "rollup-plugin-delete";
 import pkg from "./package.json";
 
 export default {
@@ -12,6 +13,7 @@ export default {
   },
   external: [...Object.keys(pkg.peerDependencies || {})],
   plugins: [
+    del({ targets: "lib/*" }),
     typescript({ declaration: true }),
     styles({ modules: false }),
     copy({ targets: [{ src: "src/**/*.css", dest: "lib/" }] }),
