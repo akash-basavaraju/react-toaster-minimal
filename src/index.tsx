@@ -4,11 +4,6 @@ import { IToastMessage, IState } from "./types";
 import ToastComponent from "./ToastComponent";
 
 const DEFAULT_TOAST_MESSAGE_TIME_MS = 5000;
-/*
- * ToastProvider is wrapping the whole App Component.
- * Usage : import "useToast" Hook and then call the Hook to get the showToast function.
- * showToast() method takes the data of "IToastMessage" type
- */
 
 export const useToast = () => {
   const [, dispatch] = useContext(toastContext);
