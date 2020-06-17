@@ -11,14 +11,18 @@
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
-    "typescript": "^3.9.3",
     "@types/react": "^16.9.35",
-    "@types/react-transition-group": "^4.4.0"
+    "@types/react-transition-group": "^4.4.0",
+    "prettier": "^2.0.5",
+    "rollup": "^2.16.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-styles": "^3.8.2",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.3"
   },
   "scripts": {
-    "prebuild": "rm -r lib/*",
-    "build": "tsc",
-    "postbuild": "cp src/*.css lib/"
+    "build": "rm -r lib/* && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -34,5 +38,6 @@
     "notification",
     "beautiful animation"
   ],
-  "homepage": "https://github.com/akash-basavaraju/react-toaster-minimal#readme"
+  "homepage": "https://github.com/akash-basavaraju/react-toaster-minimal#readme",
+  "dependencies": {}
 }
