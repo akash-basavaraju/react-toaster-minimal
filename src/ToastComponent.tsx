@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useEffect, useCallback } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import toastContext from "./toastContext";
 import "./ToastComponent.css";
@@ -11,19 +11,29 @@ export default function ToastMessageComponent({
 }) {
   const [{ toastMessages }, dispatch] = useContext(toastContext);
 
-  const handleClickMsgClear = useMemo(() => {
-    return (event: React.MouseEvent | React.KeyboardEvent) => {
-      if (!(event.currentTarget instanceof HTMLDivElement)) {
-        return;
-      }
-      const {
-        currentTarget: { dataset: { timestamp = "" } = {} } = {},
-      } = event;
-      if (timestamp) {
-        dispatch({ type: "clearMsg", data: timestamp });
-      }
+  const handleClickMsgClear = (
+    event: React.MouseEvent | React.KeyboardEvent
+  ) => {
+    if (!(event.currentTarget instanceof HTMLDivElement)) {
+      return;
+    }
+    const { currentTarget: { dataset: { timestamp = "" } = {} } = {} } = event;
+    if (timestamp) {
+      dispatch({ type: "clearMsg", data: timestamp });
+    }
+  };
+
+  useEffect(() => {
+    const eventListener = (event: any) => {
+      const { detail: dispathMessage } = event;
+      dispatch(dispathMessage);
     };
-  }, [dispatch]);
+    window.addEventListener("react-toaster-minimal-event", eventListener);
+    return () => {
+      window.removeEventListener("react-toaster-minimal-event", eventListener);
+    };
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <aside className="toast-container">

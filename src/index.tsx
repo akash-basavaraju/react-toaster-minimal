@@ -29,6 +29,26 @@ export const useToast = () => {
   return showToast;
 };
 
+export const showToast = (message: IToastMessage) => {
+  const timestamp = Date.now();
+  const toastEvent = new CustomEvent("react-toaster-minimal-event", {
+    detail: {
+      type: "toastMsgs",
+      data: {
+        timestamp,
+        ...message,
+      },
+    },
+  });
+  window.dispatchEvent(toastEvent);
+  setTimeout(() => {
+    const tEvent = new CustomEvent("react-toaster-minimal-event", {
+      detail: { type: "clearMsg", data: timestamp },
+    });
+    window.dispatchEvent(tEvent);
+  }, message.closeTimeInMs || DEFAULT_TOAST_MESSAGE_TIME_MS);
+};
+
 const reducer = (state: IState, action: { type: string; data: any }) => {
   switch (action.type) {
     case "toastMsgs": {
@@ -48,10 +68,10 @@ const reducer = (state: IState, action: { type: string; data: any }) => {
 };
 
 function ToastProvider({
-  children,
+  children = null,
   animationTimeInMs,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   animationTimeInMs?: number;
 }) {
   const context = useReducer<

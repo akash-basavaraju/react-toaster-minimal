@@ -9,7 +9,6 @@ export default {
   output: {
     file: "./lib/index.js",
     format: "es",
-    sourcemap: true,
   },
   external: [...Object.keys(pkg.peerDependencies || {})],
   plugins: [
