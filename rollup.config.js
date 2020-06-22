@@ -6,15 +6,21 @@ import pkg from "./package.json";
 
 export default {
   input: "./src/index.tsx",
-  output: {
-    file: "./lib/index.js",
-    format: "es",
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: "cjs",
+    },
+    {
+      file: pkg.module,
+      format: "es",
+    },
+  ],
   external: [...Object.keys(pkg.peerDependencies || {})],
   plugins: [
-    del({ targets: "lib/*" }),
-    typescript({ declaration: true }),
-    styles({ modules: false }),
-    copy({ targets: [{ src: "src/**/*.css", dest: "lib/" }] }),
+    del({ targets: "dist/*" }),
+    typescript(),
+    styles(),
+    copy({ targets: [{ src: "src/**/*.css", dest: "dist/" }] }),
   ],
 };
