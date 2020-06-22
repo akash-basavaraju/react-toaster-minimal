@@ -32,7 +32,7 @@ function main() {
 
 Then inside the App Component, you can use the Toaster.
 
-import useToast Hook and then call it to get the showToast method. Call the showToast method to trigger the toast.
+Import the `showToast` method to trigger the toast.
 
 ```js
 import { showToast } from "react-toaster-minimal";
